@@ -1,16 +1,86 @@
-<Resource name="jdbc/MyDB"
-          factory="com.goyoung.tomcat.jdbc.pool.SecureDataSource.EncryptedDataSourceFactory"
-          auth="Container"
-          type="javax.sql.DataSource"
-          maxActive="100"
-          maxIdle="30"
-          maxWait="10000"
-          username="databaseUser"
-          password="dd30b6e87a972be1999fda04f657eca0"
-          driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-          url="jdbc:sqlserver://localhost:1433;databaseName=MyDB"/>
-          
-<!-- live PostGress Config -->            
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+--><!-- The contents of this file will be loaded for each web application --><Context>
+
+    <!-- Default set of monitored resources. If one of these changes, the    -->
+    <!-- web application will be reloaded.                                   -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+    <Manager pathname="" />
+    -->
+
+<!-- Murano's connection pool -->
+<!--    <Resource
+            auth="Container"
+            driverClassName="oracle.jdbc.OracleDriver"
+            factory="com.svb.EncryptedDataSourceFactory"
+            maxIdle="10" maxTotal="20" maxWaitMillis="-1"
+            name="jdbc/murBaseDS"
+            password="Svb#init15"
+            type="javax.sql.DataSource"
+            url="jdbc:oracle:thin:@sal-vd3-olbdb1.dev.svbank.com:1522:MURQA"
+            username="murbase"/> -->
+
+
+   <!-- maxActive: Maximum number of database connections in pool. Make sure you
+         configure your mysqld max_connections large enough to handle
+         all of your db connections. Set to -1 for no limit.
+         -->
+
+    <!-- maxIdle: Maximum number of idle database connections to retain in pool.
+         Set to -1 for no limit.  See also the DBCP documentation on this
+         and the minEvictableIdleTimeMillis configuration parameter.
+         -->
+
+    <!-- maxWait: Maximum time to wait for a database connection to become available
+         in ms, in this example 10 seconds. An Exception is thrown if
+         this timeout is exceeded.  Set to -1 to wait indefinitely.
+         -->
+
+    <!-- username and password: MySQL username and password for database connections  -->
+
+    <!-- driverClassName: Class name for the old mm.mysql JDBC driver is
+         org.gjt.mm.mysql.Driver - we recommend using Connector/J though.
+         Class name for the official MySQL Connector/J driver is com.mysql.jdbc.Driver.
+         -->
+
+    <!-- url: The JDBC connection url for connecting to your MySQL database.
+         -->
+
+            
+<!-- PostGreSQL DB Config with plaintext password -->            
+<!-- <Resource 
+	auth="Container" 
+	driverClassName="org.postgresql.Driver" 
+	maxIdle="10" 
+	maxTotal="20" 
+	maxWaitMillis="-1" 
+	name="jdbc/postgres" 
+	password="password" 
+	type="javax.sql.DataSource" 
+	url="jdbc:postgresql://localhost:5432/test_app_db" 
+	username="tomcat"/>
+</Context>  -->
+
+<!-- PostGreSQL DB DataSource Config with encrypted password --> 
 <Resource
 	name="jdbc/postgres"
 	type="javax.sql.DataSource" 
@@ -25,3 +95,5 @@
 	url="jdbc:postgresql://localhost:5432/test_app_db" 
 	/>
 </Context>
+
+
