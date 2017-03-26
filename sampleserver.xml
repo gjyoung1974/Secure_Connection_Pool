@@ -1,0 +1,11 @@
+<Resource name="jdbc/MyDB"
+          factory="com.goyoung.tomcat.jdbc.pool.SecureDataSource.EncryptedDataSourceFactory"
+          auth="Container"
+          type="javax.sql.DataSource"
+          maxActive="100"
+          maxIdle="30"
+          maxWait="10000"
+          username="databaseUser"
+          password="dd30b6e87a972be1999fda04f657eca0"
+          driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+          url="jdbc:sqlserver://localhost:1433;databaseName=MyDB"/>
