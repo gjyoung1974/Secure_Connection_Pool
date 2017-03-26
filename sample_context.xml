@@ -9,3 +9,19 @@
           password="dd30b6e87a972be1999fda04f657eca0"
           driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
           url="jdbc:sqlserver://localhost:1433;databaseName=MyDB"/>
+          
+<!-- live PostGress Config -->            
+<Resource
+	name="jdbc/postgres"
+	type="javax.sql.DataSource" 
+	factory="com.goyoung.tomcat.jdbc.pool.SecureDataSource.EncryptedDataSourceFactory" 
+	auth="Container" 
+	driverClassName="org.postgresql.Driver" 
+	maxIdle="10" 
+	maxTotal="20" 
+	maxWaitMillis="-1" 
+	username="tomcat"
+	password="f017d4322c6e63e0a83178b8195111f0" 
+	url="jdbc:postgresql://localhost:5432/test_app_db" 
+	/>
+</Context>
