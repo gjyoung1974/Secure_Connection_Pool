@@ -1,6 +1,6 @@
 # Secure Connection Pool
-removes passwords from JDBC connection pool properties files 
-on tomcat & related servers.
+Removes stored, plaintext passwords from JDBC connection pool properties files like context.xml
+for tomcat & related servers.
 
 **Today:**
 This library supports Lieberman Software's ERPM platform.
