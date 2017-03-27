@@ -11,19 +11,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Properties;
 
-import javax.servlet.ServletContext;
-
 public class ERPMRestClient {
 
 	public static String post(String input, String operation) throws IOException {
 
-		
-	
+		// Load RestAPI username & password from config file
 		File configDir = new File(System.getProperty("catalina.base"), "conf");
 		File configFile = new File(configDir, "config.properties");
 		InputStream in = new FileInputStream(configFile);
 		Properties prop = new Properties();
-
 
 		try {
 			prop.load(in);

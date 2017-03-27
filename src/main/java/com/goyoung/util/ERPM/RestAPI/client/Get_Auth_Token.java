@@ -19,11 +19,6 @@ public class Get_Auth_Token {
 		InputStream in = new FileInputStream(configFile);
 		Properties prop = new Properties();
 
-		
-		
-		
-
-
 		try {
 			prop.load(in);
 		} catch (IOException e) {
