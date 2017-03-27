@@ -4,7 +4,7 @@ removes passwords from JDBC connection pool properties files
 must do:
 1. need to reference the custom DataSourceFactory "VaultedPassword_DataSourceFactory" class 
    in the your tomcat server's context.xml
-
+```xml
 <!-- example JDBC resource-->
 <Resource
 	name="jdbc/postgres"
@@ -18,7 +18,7 @@ must do:
 	username="tomcat"
 	url="jdbc:postgresql://localhost:5432/test_app_db" 
 	/>
-
+```
 2. edit the provided config.properties file to contain the correct settings
 
 3. copy the provided config.properties into your tomcat server's the $catalina_home/conf directory
