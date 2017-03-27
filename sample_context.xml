@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-
   Licensed to the Apache Software Foundation (ASF) under one or more
   contributor license agreements.  See the NOTICE file distributed with
   this work for additional information regarding copyright ownership.
@@ -26,74 +25,30 @@
     <!--
     <Manager pathname="" />
     -->
+ 
+<!-- <Resource  -->
+<!-- 	auth="Container"  -->
+<!-- 	driverClassName="org.postgresql.Driver"  -->
+<!-- 	maxIdle="10"  -->
+<!-- 	maxTotal="20"  -->
+<!-- 	maxWaitMillis="-1"  -->
+<!-- 	name="jdbc/postgres"  -->
+<!-- 	password="password"  -->
+<!-- 	type="javax.sql.DataSource"  -->
+<!-- 	url="jdbc:postgresql://localhost:5432/test_app_db"  -->
+<!-- 	username="tomcat"/>    -->
 
-<!-- Murano's connection pool -->
-<!--    <Resource
-            auth="Container"
-            driverClassName="oracle.jdbc.OracleDriver"
-            factory="com.svb.EncryptedDataSourceFactory"
-            maxIdle="10" maxTotal="20" maxWaitMillis="-1"
-            name="jdbc/murBaseDS"
-            password="Svb#init15"
-            type="javax.sql.DataSource"
-            url="jdbc:oracle:thin:@sal-vd3-olbdb1.dev.svbank.com:1522:MURQA"
-            username="murbase"/> -->
-
-
-   <!-- maxActive: Maximum number of database connections in pool. Make sure you
-         configure your mysqld max_connections large enough to handle
-         all of your db connections. Set to -1 for no limit.
-         -->
-
-    <!-- maxIdle: Maximum number of idle database connections to retain in pool.
-         Set to -1 for no limit.  See also the DBCP documentation on this
-         and the minEvictableIdleTimeMillis configuration parameter.
-         -->
-
-    <!-- maxWait: Maximum time to wait for a database connection to become available
-         in ms, in this example 10 seconds. An Exception is thrown if
-         this timeout is exceeded.  Set to -1 to wait indefinitely.
-         -->
-
-    <!-- username and password: MySQL username and password for database connections  -->
-
-    <!-- driverClassName: Class name for the old mm.mysql JDBC driver is
-         org.gjt.mm.mysql.Driver - we recommend using Connector/J though.
-         Class name for the official MySQL Connector/J driver is com.mysql.jdbc.Driver.
-         -->
-
-    <!-- url: The JDBC connection url for connecting to your MySQL database.
-         -->
-
-            
-<!-- PostGreSQL DB Config with plaintext password -->            
-<!-- <Resource 
-	auth="Container" 
-	driverClassName="org.postgresql.Driver" 
-	maxIdle="10" 
-	maxTotal="20" 
-	maxWaitMillis="-1" 
-	name="jdbc/postgres" 
-	password="password" 
-	type="javax.sql.DataSource" 
-	url="jdbc:postgresql://localhost:5432/test_app_db" 
-	username="tomcat"/>
-</Context>  -->
-
-<!-- PostGreSQL DB DataSource Config with encrypted password --> 
 <Resource
 	name="jdbc/postgres"
 	type="javax.sql.DataSource" 
-	factory="com.goyoung.tomcat.jdbc.pool.SecureDataSource.EncryptedDataSourceFactory" 
+	factory="com.goyoung.tomcat.jdbc.pool.SecureDataSource.VaultedPassword_DataSourceFactory" 
 	auth="Container" 
 	driverClassName="org.postgresql.Driver" 
 	maxIdle="10" 
 	maxTotal="20" 
 	maxWaitMillis="-1" 
 	username="tomcat"
-	password="f017d4322c6e63e0a83178b8195111f0" 
 	url="jdbc:postgresql://localhost:5432/test_app_db" 
 	/>
+  
 </Context>
-
-
