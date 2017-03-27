@@ -1,6 +1,5 @@
 # Secure JDBC Connection Pool
-secure JDBC connection pool
-Removes stored, plaintext passwords from JDBC connection pool properties files like context.xml
+Secure JDBC connection pool removes stored, plaintext passwords from JDBC connection pool properties files such as context.xml
 for tomcat & related servers.
 
 **Today:**
