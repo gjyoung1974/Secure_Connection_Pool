@@ -2,10 +2,10 @@
 removes passwords from JDBC connection pool properties files 
 on tomcat & related servers.
 
-# today:
+## today:
 This library supports Lieberman Software's ERPM platform.
 
-# Future:
+## Future:
 Going forward I would like to support some additional secret managers like HashiCorp's Vault, or Square's KeyWhiz.
 
 must do:
