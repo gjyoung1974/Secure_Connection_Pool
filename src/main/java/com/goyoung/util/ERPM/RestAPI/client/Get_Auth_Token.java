@@ -1,5 +1,7 @@
 package com.goyoung.util.ERPM.RestAPI.client;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -12,8 +14,15 @@ public class Get_Auth_Token {
 	public static String go() throws IOException {
 
 		// Load RestAPI username & password from config file
+		File configDir = new File(System.getProperty("catalina.base"), "conf");
+		File configFile = new File(configDir, "config.properties");
+		InputStream in = new FileInputStream(configFile);
 		Properties prop = new Properties();
-		InputStream in = ERPMRestClient.class.getResourceAsStream("config.properties");
+
+		
+		
+		
+
 
 		try {
 			prop.load(in);
