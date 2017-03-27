@@ -1,5 +1,12 @@
 # Secure Connection Pool
-removes passwords from JDBC connection pool properties files
+removes passwords from JDBC connection pool properties files 
+on tomcat & related servers.
+
+# today:
+This library supports Lieberman Software's ERPM platform
+
+# Future:
+Going forward I would like to support some additional like HashiCorp's Vault or Square's KeyWhiz
 
 must do:
 1. need to reference the custom DataSourceFactory "VaultedPassword_DataSourceFactory" class 
