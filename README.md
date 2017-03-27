@@ -1,5 +1,5 @@
 # Secure Connection Pool
-remove passwords from JDBC connection pool properties files
+removes passwords from JDBC connection pool properties files
 
 must do:
 1. need to reference the custom DataSourceFactory "VaultedPassword_DataSourceFactory" class 
