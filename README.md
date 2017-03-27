@@ -7,6 +7,8 @@ This library supports Lieberman Software's ERPM platform.
 
 **Future:**
 Going forward I would like to support some additional secret managers like HashiCorp's Vault, or Square's KeyWhiz.
+HashCorp Vault: https://www.vaultproject.io/intro/index.html
+Sqaure KeyWhiz: https://square.github.io/keywhiz/
 
 must do:
 1. need to reference the custom DataSourceFactory "VaultedPassword_DataSourceFactory" class 
