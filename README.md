@@ -35,4 +35,4 @@ must do:
 3. copy the provided config.properties into your tomcat server's the $catalina_home/conf directory
 
 4. add Google's Gson 2.8.0 library https://mvnrepository.com/artifact/com.google.code.gson/gson/2.8.0
-into the $catalina_home/lib directory
+into the $catalina_home/lib directory.
