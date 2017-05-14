@@ -36,3 +36,6 @@ must do:
 
 4. add Google's Gson 2.8.0 library https://mvnrepository.com/artifact/com.google.code.gson/gson/2.8.0
 into the $catalina_home/lib directory.
+
+``` 2017 Gordon Young gjyoung1974@gmail.com```
+
