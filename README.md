@@ -38,4 +38,3 @@ must do:
 into the $catalina_home/lib directory.
 
 ``` 2017 Gordon Young gjyoung1974@gmail.com```
-
