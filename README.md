@@ -20,7 +20,7 @@ must do:
 <Resource
 	name="jdbc/postgres"
 	type="javax.sql.DataSource" 
-	factory="com.goyoung.tomcat.jdbc.pool.SecureDataSource.VaultedPassword_DataSourceFactory" 
+	factory="com.goyoung.tomcat.jdbc.pool.SecureDataSource.vaultedPasswordDataSourceFactory"
 	auth="Container" 
 	driverClassName="org.postgresql.Driver" 
 	maxIdle="10" 
