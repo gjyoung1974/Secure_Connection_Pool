@@ -13,7 +13,7 @@ import com.google.gson.JsonObject;
 
 public class getAuthToken {
 
-    private static Logger logger = Logger.getLogger(ERPMRestClient.class.getName());
+    private static Logger logger = Logger.getLogger(getAuthToken.class.getName());
 
     public static String go() throws IOException {
 
