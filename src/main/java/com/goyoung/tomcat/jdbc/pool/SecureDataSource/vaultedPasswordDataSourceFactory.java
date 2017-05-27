@@ -27,7 +27,7 @@ import java.util.logging.*;
 
 public class vaultedPasswordDataSourceFactory extends DataSourceFactory {
 
-    private final static Logger LOGGER = Logger.getLogger(vaultedPasswordDataSourceFactory.class.getName());
+    private static Logger LOGGER = Logger.getLogger(vaultedPasswordDataSourceFactory.class.getName());
 
     @Override
     public DataSource createDataSource(Properties properties, Context context, boolean XA)
@@ -48,21 +48,21 @@ public class vaultedPasswordDataSourceFactory extends DataSourceFactory {
             LOGGER.info(e.getStackTrace().toString());
         }
 
-        String shared_pw_list = prop.getProperty("shared_pw_list");
-        String system_name = prop.getProperty("system_name");
-        String co_comment = prop.getProperty("co_comment");
+        String sharedPwList = prop.getProperty("shared_pw_list");
+        String systemName = prop.getProperty("system_name");
+        String coComment = prop.getProperty("co_comment");
 
         // get the present JDBC connection pool propeties
         PoolConfiguration poolProperties = vaultedPasswordDataSourceFactory.parsePoolProperties(properties);
 
         // get the ERPM Vault Password
-        String auth_token = Get_Auth_Token.go();
+        String authToken = Get_Auth_Token.go();
 
         // get the database password from the secret vault
-        String PoolPassword = SharedCredential.CheckOut(auth_token, co_comment, poolProperties.getUsername(), shared_pw_list, system_name);
+        String poolPassword = SharedCredential.CheckOut(authToken, coComment, poolProperties.getUsername(), sharedPwList, systemName);
 
         // set the connection pool password
-        poolProperties.setPassword(PoolPassword);
+        poolProperties.setPassword(poolPassword);
 
         // The rest of this code is copied from Tomcat's DataSourceFactory.
         if (poolProperties.getDataSourceJNDI() != null && poolProperties.getDataSource() == null) {
