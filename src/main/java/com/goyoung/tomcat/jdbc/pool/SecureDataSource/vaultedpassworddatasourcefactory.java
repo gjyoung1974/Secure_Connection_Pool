@@ -45,7 +45,7 @@ public class vaultedpassworddatasourcefactory extends DataSourceFactory {
         try {
             prop.load(in);
         } catch (IOException e) {
-            logger.info(e.getStackTrace().toString());
+            logger.log(Level.INFO, "prop.load() threw an exception.", e);
         }
 
         String sharedPwList = prop.getProperty("shared_pw_list");
