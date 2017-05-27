@@ -84,9 +84,8 @@ public final class SSLUtilities {
 
             logger.log(Level.INFO, "context.init() threw an exception.", gse);
 
-        } // catch
-        //com.sun.net.ssl.HttpsURLConnection.setDefaultSSLSocketFactory(context.getSocketFactory());
-    } // __trustAllHttpsCertificates
+        }
+    }
 
     /**
      * Return true if the protocol handler property java. protocol.handler.pkgs
@@ -132,9 +131,8 @@ public final class SSLUtilities {
 
             logger.log(Level.INFO, "context.init() threw an exception.", gse);
 
-        } // catch
-        // HttpsURLConnection.setDefaultSSLSocketFactory(context.getSocketFactory());
-    } // _trustAllHttpsCertificates
+        }
+    }
 
     /**
      * Set the default Hostname Verifier to an instance of a fake class that

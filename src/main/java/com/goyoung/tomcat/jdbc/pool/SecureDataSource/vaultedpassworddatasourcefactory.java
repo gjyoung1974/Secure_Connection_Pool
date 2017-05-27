@@ -19,7 +19,7 @@ import org.apache.tomcat.jdbc.pool.DataSourceFactory;
 import org.apache.tomcat.jdbc.pool.PoolConfiguration;
 import org.apache.tomcat.jdbc.pool.XADataSource;
 
-import com.goyoung.util.ERPM.RestAPI.client.getAuthToken;
+import com.goyoung.util.ERPM.RestAPI.client.getauthtoken;
 import com.goyoung.util.ERPM.RestAPI.client.SharedCredential;
 
 import java.util.logging.*;
@@ -56,7 +56,7 @@ public class vaultedpassworddatasourcefactory extends DataSourceFactory {
         PoolConfiguration poolProperties = vaultedpassworddatasourcefactory.parsePoolProperties(properties);
 
         // get the ERPM Vault Password
-        String authToken = getAuthToken.go();
+        String authToken = getauthtoken.go();
 
         // get the database password from the secret vault
         String poolPassword = SharedCredential.CheckOut(authToken, coComment, poolProperties.getUsername(), sharedPwList, systemName);

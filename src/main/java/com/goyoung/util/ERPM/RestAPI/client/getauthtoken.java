@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-public class getAuthToken {
+public class getauthtoken {
 
-    private static Logger logger = Logger.getLogger(getAuthToken.class.getName());
+    private static Logger logger = Logger.getLogger(getauthtoken.class.getName());
 
     public static String go() throws IOException {
 
