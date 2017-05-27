@@ -1,9 +1,9 @@
+com/goyoung/tomcat/jdbc/pool/SecureDataSource/VaultedPasswordDataSourceFactory.class
 com/goyoung/util/ERPM/RestAPI/client/SharedCredential.class
 com/goyoung/util/ERPM/RestAPI/client/SslUtilities.class
 com/goyoung/util/ERPM/RestAPI/client/SslUtilities$_FakeHostnameVerifier.class
 com/goyoung/util/ERPM/RestAPI/client/GetAuthToken.class
 com/goyoung/util/ERPM/RestAPI/client/ErpmRestClient.class
 com/goyoung/util/ERPM/RestAPI/client/SslUtilities$_FakeX509TrustManager.class
-com/goyoung/tomcat/jdbc/pool/SecureDataSource/vaultedpassworddatasourcefactory.class
 com/goyoung/util/ERPM/RestAPI/client/SslUtilities$FakeHostnameVerifier.class
 com/goyoung/util/ERPM/RestAPI/client/SslUtilities$FakeX509TrustManager.class

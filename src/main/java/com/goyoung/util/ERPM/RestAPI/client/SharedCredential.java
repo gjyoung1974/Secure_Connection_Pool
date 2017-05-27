@@ -7,15 +7,15 @@ import com.google.gson.JsonObject;
 
 public class SharedCredential {
 
-	public static String checkOut(String authenticationToken, String comment, String AccountName,
+	public static String checkOut(String authenticationToken, String comment, String accountName,
 								  String sharedCredentialListName, String systemName) throws IOException {
 
-		String sp_checkout_message = "{\"AuthenticationToken\":\"" + authenticationToken + "\",\"Comment\":\"" + comment
-				+ "\",\"SharedCredentialIdentifier\":" + "{\"AccountName\":\"" + AccountName
+		String spCheckoutMessage = "{\"AuthenticationToken\":\"" + authenticationToken + "\",\"Comment\":\"" + comment
+				+ "\",\"SharedCredentialIdentifier\":" + "{\"AccountName\":\"" + accountName
 				+ "\",\"SharedCredentialListName\":\"" + sharedCredentialListName + "\",\"SystemName\":\"" + systemName
 				+ "\"}}";
 
-		String response = ErpmRestClient.post(sp_checkout_message, "AccountStoreOps_SharedCredential_CheckOut");
+		String response = ErpmRestClient.post(spCheckoutMessage, "AccountStoreOps_SharedCredential_CheckOut");
 
 		JsonObject jobj = new Gson().fromJson(response, JsonObject.class);
 
