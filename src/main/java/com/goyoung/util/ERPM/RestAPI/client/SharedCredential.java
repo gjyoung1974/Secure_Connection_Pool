@@ -7,12 +7,12 @@ import com.google.gson.JsonObject;
 
 public class SharedCredential {
 
-	public static String CheckOut(String AuthenticationToken, String Comment, String AccountName,
-			String SharedCredentialListName, String SystemName) throws IOException {
+	public static String checkOut(String authenticationToken, String comment, String AccountName,
+								  String sharedCredentialListName, String systemName) throws IOException {
 
-		String sp_checkout_message = "{\"AuthenticationToken\":\"" + AuthenticationToken + "\",\"Comment\":\"" + Comment
+		String sp_checkout_message = "{\"AuthenticationToken\":\"" + authenticationToken + "\",\"Comment\":\"" + comment
 				+ "\",\"SharedCredentialIdentifier\":" + "{\"AccountName\":\"" + AccountName
-				+ "\",\"SharedCredentialListName\":\"" + SharedCredentialListName + "\",\"SystemName\":\"" + SystemName
+				+ "\",\"SharedCredentialListName\":\"" + sharedCredentialListName + "\",\"SystemName\":\"" + systemName
 				+ "\"}}";
 
 		String response = ErpmRestClient.post(sp_checkout_message, "AccountStoreOps_SharedCredential_CheckOut");

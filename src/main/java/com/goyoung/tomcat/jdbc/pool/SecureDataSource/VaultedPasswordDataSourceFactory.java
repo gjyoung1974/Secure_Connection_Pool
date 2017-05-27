@@ -25,12 +25,12 @@ import com.goyoung.util.ERPM.RestAPI.client.SharedCredential;
 import java.util.logging.*;
 
 
-public class vaultedpassworddatasourcefactory extends DataSourceFactory {
+public class VaultedPasswordDataSourceFactory extends DataSourceFactory {
 
-    private static Logger logger = Logger.getLogger(vaultedpassworddatasourcefactory.class.getName());
+    private static Logger logger = Logger.getLogger(VaultedPasswordDataSourceFactory.class.getName());
 
     @Override
-    public DataSource createDataSource(Properties properties, Context context, boolean XA)
+    public DataSource createDataSource(Properties properties, Context context, boolean xa)
             throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException, SQLException,
             NoSuchAlgorithmException, NoSuchPaddingException, IOException {
 
@@ -53,13 +53,13 @@ public class vaultedpassworddatasourcefactory extends DataSourceFactory {
         String coComment = prop.getProperty("co_comment");
 
         // get the present JDBC connection pool propeties
-        PoolConfiguration poolProperties = vaultedpassworddatasourcefactory.parsePoolProperties(properties);
+        PoolConfiguration poolProperties = VaultedPasswordDataSourceFactory.parsePoolProperties(properties);
 
         // get the ERPM Vault Password
         String authToken = GetAuthToken.go();
 
         // get the database password from the secret vault
-        String poolPassword = SharedCredential.CheckOut(authToken, coComment, poolProperties.getUsername(), sharedPwList, systemName);
+        String poolPassword = SharedCredential.checkOut(authToken, coComment, poolProperties.getUsername(), sharedPwList, systemName);
 
         // set the connection pool password
         poolProperties.setPassword(poolPassword);
@@ -68,7 +68,7 @@ public class vaultedpassworddatasourcefactory extends DataSourceFactory {
         if (poolProperties.getDataSourceJNDI() != null && poolProperties.getDataSource() == null) {
             performJNDILookup(context, poolProperties);
         }
-        org.apache.tomcat.jdbc.pool.DataSource dataSource = XA ? new XADataSource(poolProperties)
+        org.apache.tomcat.jdbc.pool.DataSource dataSource = xa ? new XADataSource(poolProperties)
                 : new org.apache.tomcat.jdbc.pool.DataSource(poolProperties);
         dataSource.createPool();
 

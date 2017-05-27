@@ -19,7 +19,6 @@ public class ErpmRestClient {
 
     public static String post(String input, String operation) throws IOException {
 
-
         // Load RestAPI username & password from config file
         File configDir = new File(System.getProperty("catalina.base"), "conf");
         File configFile = new File(configDir, "config.properties");
@@ -45,12 +44,11 @@ public class ErpmRestClient {
         os.write(input.getBytes());
         os.flush();
 
-        // TODO some urlconnection Eror handling
         if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
             logger.log(Level.INFO, "conn.getResponseCode() threw ", new IOException("Failed : HTTP error code : " + conn.getResponseCode()));
         }
 
-        BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         StringBuilder sb = new StringBuilder();
         String output;
         while ((output = br.readLine()) != null) {
