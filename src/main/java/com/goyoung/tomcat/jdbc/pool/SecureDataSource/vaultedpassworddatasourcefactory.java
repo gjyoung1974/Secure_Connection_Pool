@@ -25,9 +25,9 @@ import com.goyoung.util.ERPM.RestAPI.client.SharedCredential;
 import java.util.logging.*;
 
 
-public class vaultedPasswordDataSourceFactory extends DataSourceFactory {
+public class vaultedpassworddatasourcefactory extends DataSourceFactory {
 
-    private static Logger LOGGER = Logger.getLogger(vaultedPasswordDataSourceFactory.class.getName());
+    private static Logger logger = Logger.getLogger(vaultedpassworddatasourcefactory.class.getName());
 
     @Override
     public DataSource createDataSource(Properties properties, Context context, boolean XA)
@@ -45,7 +45,7 @@ public class vaultedPasswordDataSourceFactory extends DataSourceFactory {
         try {
             prop.load(in);
         } catch (IOException e) {
-            LOGGER.info(e.getStackTrace().toString());
+            logger.info(e.getStackTrace().toString());
         }
 
         String sharedPwList = prop.getProperty("shared_pw_list");
@@ -53,7 +53,7 @@ public class vaultedPasswordDataSourceFactory extends DataSourceFactory {
         String coComment = prop.getProperty("co_comment");
 
         // get the present JDBC connection pool propeties
-        PoolConfiguration poolProperties = vaultedPasswordDataSourceFactory.parsePoolProperties(properties);
+        PoolConfiguration poolProperties = vaultedpassworddatasourcefactory.parsePoolProperties(properties);
 
         // get the ERPM Vault Password
         String authToken = Get_Auth_Token.go();
