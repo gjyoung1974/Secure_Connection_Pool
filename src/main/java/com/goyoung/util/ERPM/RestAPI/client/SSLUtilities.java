@@ -82,7 +82,7 @@ public final class SSLUtilities {
             context.init(null, __trustManagers, new SecureRandom());
         } catch (GeneralSecurityException gse) {
 
-            logger.log(Level.INFO, "prop.load() threw an exception.", new IllegalStateException(gse.getMessage()));
+            logger.log(Level.INFO, "context.init() threw an exception.", gse);
 
         } // catch
         //com.sun.net.ssl.HttpsURLConnection.setDefaultSSLSocketFactory(context.getSocketFactory());
@@ -130,7 +130,7 @@ public final class SSLUtilities {
             context.init(null, _trustManagers, new SecureRandom());
         } catch (GeneralSecurityException gse) {
 
-            logger.log(Level.INFO, "prop.load() threw an exception.", new IllegalStateException(gse.getMessage()));
+            logger.log(Level.INFO, "context.init() threw an exception.", gse);
 
         } // catch
         // HttpsURLConnection.setDefaultSSLSocketFactory(context.getSocketFactory());
