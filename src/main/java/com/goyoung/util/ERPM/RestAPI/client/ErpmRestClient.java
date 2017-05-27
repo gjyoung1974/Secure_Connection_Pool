@@ -12,9 +12,9 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.logging.*;
 
-public class ERPMRestClient {
+public class ErpmRestClient {
 
-    private static Logger logger = Logger.getLogger(ERPMRestClient.class.getName());
+    private static Logger logger = Logger.getLogger(ErpmRestClient.class.getName());
 
 
     public static String post(String input, String operation) throws IOException {
@@ -32,8 +32,8 @@ public class ERPMRestClient {
             logger.log(Level.INFO, "prop.load() threw an exception.", e);
         }
 
-        SSLUtilities.trustAllHostnames();
-        SSLUtilities.trustAllHttpsCertificates();
+        SslUtilities.trustAllHostnames();
+        SslUtilities.trustAllHttpsCertificates();
 
         URL url = new URL(prop.getProperty("url") + operation);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();

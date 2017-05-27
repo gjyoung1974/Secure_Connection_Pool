@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-public class getauthtoken {
+public class GetAuthToken {
 
-    private static Logger logger = Logger.getLogger(getauthtoken.class.getName());
+    private static Logger logger = Logger.getLogger(GetAuthToken.class.getName());
 
     public static String go() throws IOException {
 
@@ -35,7 +35,7 @@ public class getauthtoken {
         String operation = "DoLogin2";// set the operation endpoint
 
         // post it & collect the response
-        String response = ERPMRestClient.post(input, operation);
+        String response = ErpmRestClient.post(input, operation);
         JsonObject jobj = new Gson().fromJson(response, JsonObject.class);
 
         return jobj.get("OperationMessage").getAsString();

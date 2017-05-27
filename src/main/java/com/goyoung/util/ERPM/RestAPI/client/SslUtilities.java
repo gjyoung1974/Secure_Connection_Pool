@@ -17,9 +17,9 @@ import javax.net.ssl.X509TrustManager;
  * This is really horrible hack and should only be used in a development environment
  * and MUST never make it's way into production!
  */
-public final class SSLUtilities {
+public final class SslUtilities {
 
-    private static Logger logger = Logger.getLogger(SSLUtilities.class.getName());
+    private static Logger logger = Logger.getLogger(SslUtilities.class.getName());
 
     /**
      * Hostname verifier for the Sun's deprecated API.
@@ -164,7 +164,7 @@ public final class SSLUtilities {
      * name. This class uses the old deprecated API from the com.sun. ssl
      * package.
      *
-     * @deprecated see {@link SSLUtilities.FakeHostnameVerifier}.
+     * @deprecated see {@link SslUtilities.FakeHostnameVerifier}.
      */
     @SuppressWarnings("restriction")
     public static class _FakeHostnameVerifier implements com.sun.net.ssl.HostnameVerifier {
@@ -187,7 +187,7 @@ public final class SSLUtilities {
      * remote side of a secure socket, including self-signed certificates. This
      * class uses the old deprecated API from the com.sun.ssl package.
      *
-     * @deprecated see {@link SSLUtilities.FakeX509TrustManager}.
+     * @deprecated see {@link SslUtilities.FakeX509TrustManager}.
      */
     @SuppressWarnings("restriction")
     public static class _FakeX509TrustManager implements com.sun.net.ssl.X509TrustManager {
@@ -290,4 +290,4 @@ public final class SSLUtilities {
             return (_AcceptedIssuers);
         } // getAcceptedIssuers
     } // FakeX509TrustManager
-} // SSLUtilities
+} // SslUtilities

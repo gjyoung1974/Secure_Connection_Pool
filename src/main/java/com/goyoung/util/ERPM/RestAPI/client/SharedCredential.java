@@ -15,7 +15,7 @@ public class SharedCredential {
 				+ "\",\"SharedCredentialListName\":\"" + SharedCredentialListName + "\",\"SystemName\":\"" + SystemName
 				+ "\"}}";
 
-		String response = ERPMRestClient.post(sp_checkout_message, "AccountStoreOps_SharedCredential_CheckOut");
+		String response = ErpmRestClient.post(sp_checkout_message, "AccountStoreOps_SharedCredential_CheckOut");
 
 		JsonObject jobj = new Gson().fromJson(response, JsonObject.class);
 
