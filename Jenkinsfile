@@ -16,14 +16,25 @@ node {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
    }
-   stage('SonarQube analysis') {
-    withSonarQubeEnv('My SonarQube Server') {
-      // requires SonarQube Scanner for Maven 3.2+
-      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
-    }
-  }
-  stage('Results') {
+
+   stage('SonarQube analysis') { 
+        withSonarQubeEnv('Sonar') { 
+          sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
+          '-f all/pom.xml ' +
+          '-Dsonar.projectKey=com.huettermann:all:master ' +
+          '-Dsonar.login=$SONAR_UN ' +
+          '-Dsonar.password=$SONAR_PW ' +
+          '-Dsonar.language=java ' +
+          '-Dsonar.sources=. ' +
+          '-Dsonar.tests=. ' +
+          '-Dsonar.test.inclusions=**/*Test*/** ' +
+          '-Dsonar.exclusions=**/*Test*/**'
+        }
+    }  
+
+ stage('Results') {
       junit '**/target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
    }
 }
+
