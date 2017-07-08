@@ -20,12 +20,12 @@ node {
    stage('SonarQube analysis') { 
         withSonarQubeEnv('Sonar') { 
           sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
-          '-f all/pom.xml ' +
+          '-f ./pom.xml ' +
           '-Dsonar.projectKey=:Secure_Connection_Pool:all:master ' +
           '-Dsonar.login=admin ' +
-          '-Dsonar.password=adminc' +
+          '-Dsonar.password=admin ' +
           '-Dsonar.language=java ' +
-          '-Dsonar.sources=. '
+          '-Dsonar.sources=./src/main/java'
         }
     }  
 
