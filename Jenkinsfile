@@ -25,7 +25,7 @@ node {
           '-Dsonar.login=admin ' +
           '-Dsonar.password=adminc' +
           '-Dsonar.language=java ' +
-          '-Dsonar.sources=. ' +
+          '-Dsonar.sources=. '
         }
     }  
 
