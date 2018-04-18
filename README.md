@@ -2,6 +2,12 @@
 Secure JDBC connection pool removes stored, plaintext passwords from JDBC connection pool properties files such as context.xml
 for tomcat & related servers.
 
+**Spring Framework HashiCorp Vault**
+Spring Cloud Vault supports integration with HashiCorp Vault:
+https://spring.io/blog/2016/08/15/managing-your-database-secrets-with-vault
+
+This project aims to support native JDBC <==> PW Vault integration
+
 **Today:**
 This library supports Lieberman Software's ERPM platform.
 
