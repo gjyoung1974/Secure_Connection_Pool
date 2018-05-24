@@ -1,19 +1,28 @@
+podTemplate(label: 'builder', 
+  containers: [
+    containerTemplate(image: 'docker:18.03.1-ce', name: 'docker', command: 'cat', ttyEnabled: true),
+    containerTemplate(image: "mave:tag", name: 'mvn', command: 'cat', ttyEnabled: true)
+    ],
+  volumes: [hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')])
+  {
+    node('builder') {
+        stage('Build') {
+          container('mvn') { 
+            git 'https://github.com/gjyoung1974/Secure_Connection_Pool.git'
+            sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+          }
+        }
+    } 
 node {
    def mvnHome
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/gjyoung1974/Secure_Connection_Pool.git'
-      // Get the Maven tool.
-      // ** NOTE: This 'M3' Maven tool must be configured
-      // **       in the global configuration.
-      mvnHome = tool 'M2'
    }
    stage('Build') {
       // Run the maven build
-      if (isUnix()) {
-         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
-      } else {
-         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+      container('mvn') { 
+        sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
       }
    }
 
@@ -34,4 +43,3 @@ node {
       archive 'target/*.jar'
    }
 }
-
